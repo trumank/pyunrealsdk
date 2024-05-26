@@ -1,6 +1,6 @@
 [submodule "libs/unrealsdk"]
 	path = libs/unrealsdk
-	url = git@github.com:bl-sdk/unrealsdk.git
+	url = git@github.com:trumank/unrealsdk.git
 [submodule "libs/pybind11"]
 	path = libs/pybind11
 	url = git@github.com:pybind/pybind11.git
