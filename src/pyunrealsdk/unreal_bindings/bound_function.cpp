@@ -6,6 +6,7 @@
 #include "unrealsdk/unreal/classes/uobject.h"
 #include "unrealsdk/unreal/classes/uproperty.h"
 #include "unrealsdk/unreal/classes/ustruct.h"
+#include "unrealsdk/unreal/find_class.h"
 #include "unrealsdk/unreal/structs/fname.h"
 #include "unrealsdk/unreal/wrappers/bound_function.h"
 #include "unrealsdk/unreal/wrappers/wrapped_struct.h"
@@ -39,7 +40,12 @@ std::pair<UProperty*, std::vector<UProperty*>> fill_py_params(WrappedStruct& par
 
     std::vector<FName> missing_required_args{};
 
-    for (auto prop : params.type->properties()) {
+    for (auto field : params.type->fields()) {
+        if (!field->is_instance(find_class<UProperty>())) {
+            continue;
+        }
+        auto prop = reinterpret_cast<UProperty*>(field);
+
         if ((prop->PropertyFlags & UProperty::PROP_FLAG_PARAM) == 0) {
             continue;
         }
