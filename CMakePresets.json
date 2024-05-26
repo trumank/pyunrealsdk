@@ -377,6 +377,28 @@
         "_x64",
         "_release"
       ]
+    },
+    {
+      "name": "clang-cross-ue3-x64-debug",
+      "displayName": "UE3 x64 Debug (Clang Cross Compiler)",
+      "inherits": [
+        "_base",
+        "_clang_cross_x64",
+        "_ue3",
+        "_x64",
+        "_debug"
+      ]
+    },
+    {
+      "name": "clang-cross-ue3-x64-release",
+      "displayName": "UE3 x64 Release (Clang Cross Compiler)",
+      "inherits": [
+        "_base",
+        "_clang_cross_x64",
+        "_ue3",
+        "_x64",
+        "_release"
+      ]
     }
   ]
 }
